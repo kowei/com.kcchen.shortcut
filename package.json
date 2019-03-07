@@ -1,0 +1,22 @@
+{
+    "private": true,
+    "name": "com.kcchen.shortcut",
+    "version": "0.1.2",
+    "description": "This is the plugin to create/delete Shortcuts (Android)  in Apache Cordova/PhoneGap!",
+    "types": "./types/index.d.ts",
+    "cordova": {
+        "id": "com.kcchen.shortcut",
+        "platforms": [
+            "android"
+        ]
+    },
+    "main": "./www/Shortcut.js",
+    "keywords": [
+        "cordova",
+        "shortcut",
+        "ecosystem:cordova",
+        "cordova-android"
+    ],
+    "author": "KC Chen",
+    "license": "MIT"
+}

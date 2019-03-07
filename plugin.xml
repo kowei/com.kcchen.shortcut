@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    id : Plugin識別碼 (for add/remove)
+    version : Plugin版本
+    0.1.1 Shortcuts after update
+    0.1.2 fix missing file
+-->
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.kcchen.shortcut"
+    version="0.1.2">
+
+    <name>Home Shortcuts</name>
+    
+    <description>
+      &lt;p&gt;This is the plugin to create/delete Shortcuts (Android)  in Apache Cordova/PhoneGap!&lt;/p&gt;
+      
+      &lt;p&gt;The Shortcut plugin for Apache Cordova allows you to create or delete the shortcut in the home
+      of any andorid device.&lt;/p&gt;
+    </description>
+    
+    <license>MIT</license>
+    
+    <js-module src="www/Shortcut.js" name="Shortcut">
+         <clobbers target="Shortcut" />
+    </js-module>
+    
+    <engines>
+      <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    
+    <!-- android -->
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+            <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+        </config-file>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Shortcut" >
+                <param name="android-package" value="com.kcchen.shortcut.Shortcut"/>
+            </feature>
+        </config-file>
+
+        <!-- cordova plugin src files -->
+        <source-file src="src/android/Shortcut.java" target-dir="src/com/kcchen/shortcut" />
+        <source-file src="src/android/ShortcutReceiver.java" target-dir="src/com/kcchen/shortcut" />
+    </platform>
+</plugin>
